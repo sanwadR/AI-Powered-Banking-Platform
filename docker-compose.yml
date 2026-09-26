@@ -1,0 +1,24 @@
+services:
+
+  # ===================================================
+  # PostgreSQL — our main database
+  # ===================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: banking_postgres
+    environment:
+      POSTGRES_DB: bankingdb          # Database name
+      POSTGRES_USER: bankuser         # Username (matches application.yml)
+      POSTGRES_PASSWORD: bankpass     # Password (matches application.yml)
+    ports:
+      - "5432:5432"   # Expose port 5432 on your Mac
+    volumes:
+      - postgres_data:/var/lib/postgresql/data   # Persist data between restarts
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bankuser -d bankingdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:   # Named volume — survives docker-compose down

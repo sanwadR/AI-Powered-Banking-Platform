@@ -1,0 +1,53 @@
+# ============================================================
+# Java / Maven
+# ============================================================
+target/                    # Compiled .class files and JARs
+*.class
+*.jar
+*.war
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# ============================================================
+# IntelliJ IDEA
+# ============================================================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ============================================================
+# Documentation (local learning notes — not part of the codebase)
+# ============================================================
+docs/
+
+# ============================================================
+# Environment / Secrets
+# ============================================================
+# NEVER commit secrets, API keys, or passwords to GitHub
+.env
+*.env.local
+application-local.yml
+application-secret.yml
+
+# ============================================================
+# OS Files
+# ============================================================
+.DS_Store           # macOS folder metadata
+Thumbs.db           # Windows thumbnail cache
+*.swp               # Vim swap files
+
+# ============================================================
+# Logs
+# ============================================================
+*.log
+logs/
+
+# ============================================================
+# Docker
+# ============================================================
+# Don't ignore docker-compose.yml — we want that in git
+# But ignore any local override files
+docker-compose.override.yml
